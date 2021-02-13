@@ -1,4 +1,4 @@
-package codes.yassino.databaseapi.model.database.credentials;
+package studios.ingot.databaseapi.model.database.credentials;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

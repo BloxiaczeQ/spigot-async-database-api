@@ -1,10 +1,10 @@
-package codes.yassino.databaseapi.service;
+package studios.ingot.databaseapi.service;
 
-import codes.yassino.databaseapi.DatabaseAPI;
-import codes.yassino.databaseapi.model.config.DatabaseConfig;
-import codes.yassino.databaseapi.enums.DatabaseType;
-import codes.yassino.databaseapi.model.database.handler.MongoDatabaseHandler;
-import codes.yassino.databaseapi.model.database.handler.MySQLDatabaseHandler;
+import studios.ingot.databaseapi.DatabaseAPI;
+import studios.ingot.databaseapi.model.config.DatabaseConfig;
+import studios.ingot.databaseapi.enums.DatabaseType;
+import studios.ingot.databaseapi.model.database.handler.MongoDatabaseHandler;
+import studios.ingot.databaseapi.model.database.handler.MySQLDatabaseHandler;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 

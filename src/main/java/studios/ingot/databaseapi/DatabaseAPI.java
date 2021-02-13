@@ -1,7 +1,7 @@
-package codes.yassino.databaseapi;
+package studios.ingot.databaseapi;
 
-import codes.yassino.databaseapi.model.config.DatabaseConfig;
-import codes.yassino.databaseapi.service.DatabaseService;
+import studios.ingot.databaseapi.model.config.DatabaseConfig;
+import studios.ingot.databaseapi.service.DatabaseService;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;

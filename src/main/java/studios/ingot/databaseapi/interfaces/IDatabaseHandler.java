@@ -1,4 +1,4 @@
-package codes.yassino.databaseapi.interfaces;
+package studios.ingot.databaseapi.interfaces;
 
 import java.util.List;
 

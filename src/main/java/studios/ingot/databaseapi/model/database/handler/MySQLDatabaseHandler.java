@@ -1,7 +1,7 @@
-package codes.yassino.databaseapi.model.database.handler;
+package studios.ingot.databaseapi.model.database.handler;
 
-import codes.yassino.databaseapi.DatabaseAPI;
-import codes.yassino.databaseapi.interfaces.IDatabaseHandler;
+import studios.ingot.databaseapi.DatabaseAPI;
+import studios.ingot.databaseapi.interfaces.IDatabaseHandler;
 import lombok.Getter;
 
 import java.sql.*;

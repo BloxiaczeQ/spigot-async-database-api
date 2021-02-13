@@ -1,4 +1,4 @@
-package codes.yassino.databaseapi.enums;
+package studios.ingot.databaseapi.enums;
 
 public enum DatabaseType {
     MONGODB,

@@ -1,9 +1,9 @@
-package codes.yassino.databaseapi.model.config;
+package studios.ingot.databaseapi.model.config;
 
-import codes.yassino.databaseapi.abstracts.AbstractConfiguration;
-import codes.yassino.databaseapi.enums.DatabaseType;
-import codes.yassino.databaseapi.model.database.credentials.MongoDatabaseCredentials;
-import codes.yassino.databaseapi.model.database.credentials.MySQLDatabaseCredentials;
+import studios.ingot.databaseapi.abstracts.AbstractConfiguration;
+import studios.ingot.databaseapi.enums.DatabaseType;
+import studios.ingot.databaseapi.model.database.credentials.MongoDatabaseCredentials;
+import studios.ingot.databaseapi.model.database.credentials.MySQLDatabaseCredentials;
 import lombok.Getter;
 import lombok.Setter;
 
