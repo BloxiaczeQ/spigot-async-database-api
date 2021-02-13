@@ -17,6 +17,11 @@ public class DatabaseConfig extends AbstractConfiguration {
     private MongoDatabaseCredentials mongoDatabaseCredentials = new MongoDatabaseCredentials();
     private MySQLDatabaseCredentials mySQLDatabaseCredentials = new MySQLDatabaseCredentials();
 
+    /**
+     *
+     * @param rootpath declares the path to the .json file
+     * @param name declares the name of the .json file
+     */
     public DatabaseConfig(File rootpath, String name) {
         super(rootpath,name);
 

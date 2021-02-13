@@ -26,6 +26,10 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
         }
     }
 
+    /**
+     * @param query declares data which is needed to insert a column
+     * @param <K> is a type parameter to declare what type of object we got here
+     */
     @Override
     public <K> void insertModel(K... query) {
         executorService.execute(() -> {
@@ -36,6 +40,12 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
             }
         });
     }
+
+    /**
+     * @param query declares data which is needed to get a resultset
+     * @param <K> is a type parameter to declare what type of object we got here
+     * @return returns a resultset async
+     */
     @Override
     public <K> ResultSet getAsyncModel(K... query) {
         try {
@@ -44,6 +54,12 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
             return null;
         }
     }
+
+    /**
+     * @param query declares data which is needed to get a list of resultsets
+     * @param <K> is a type parameter to declare what type of object we got here
+     * @return returns a list of resultsets async
+     */
     @Override
     public <K> List<ResultSet> getAsyncModels(K... query) {
         try {
@@ -65,11 +81,18 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
             return null;
         }
     }
+
+    /**
+     * @param query declares data which is needed to update a column
+     * @param <K> is a type parameter to declare what type of object we got here
+     */
     @Override
     public <K> void updateModel(K... query) {
         executorService.execute(() -> {
             try {
-                connection.prepareStatement((String) query[0]).executeQuery().close();
+                PreparedStatement preparedStatement = connection.prepareStatement((String) query[0]);
+                preparedStatement.executeQuery();
+                preparedStatement.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

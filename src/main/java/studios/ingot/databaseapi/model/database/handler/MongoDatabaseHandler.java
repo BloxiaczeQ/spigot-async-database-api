@@ -23,11 +23,16 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     private MongoDatabase mongoDatabase;
     private ExecutorService executorService;
 
+
     public MongoDatabaseHandler(String user, String password, String host, int port, String database) {
         mongoClient = new MongoClient(new MongoClientURI("mongodb://" + user + ":" + password + "@" + host + ":" + port + "/?authSource=admin"));
         mongoDatabase = mongoClient.getDatabase(database);
     }
 
+    /**
+     * @param query declares data which is needed to insert a document
+     * @param <K> is a type parameter to declare what type of object we got here
+     */
     @Override
     public <K> void insertModel(K... query) {
         executorService.execute(() -> {
@@ -35,6 +40,12 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
         });
     }
 
+
+    /**
+     * @param query declares data which is needed to get a document
+     * @param <K> is a type parameter to declare what type of object we got here
+     * @return returns a bson document
+     */
     @Override
     public <K> Document getAsyncModel(K... query) {
         try {
@@ -44,6 +55,11 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
         }
     }
 
+    /**
+     * @param query declares data which is needed to get a document
+     * @param <K> is a type parameter to declare what type of object we got here
+     * @return returns a list of bson document's
+     */
     @Override
     public <K> List<Document> getAsyncModels(K... query) {
         try {
@@ -59,6 +75,10 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
         }
     }
 
+    /**
+     * @param query declares data which is needed to update a document
+     * @param <K> is a type parameter to declare what type of object we got here
+     */
     @Override
     public <K> void updateModel(K... query) {
         executorService.execute(() -> {

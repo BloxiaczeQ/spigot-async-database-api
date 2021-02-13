@@ -21,6 +21,9 @@ public abstract class AbstractConfiguration {
         this.configFile = new File(rootPath, name+".json");
     }
 
+    /**
+     * loads a configuration with a filereader
+     */
     public void loadConfiguration() {
         try {
             FileReader fileReader = new FileReader(configFile);
@@ -30,7 +33,9 @@ public abstract class AbstractConfiguration {
         }
     }
 
-
+    /**
+     * saves a configuration with a filewriter
+     */
     public void saveConfiguration() {
         try {
             FileWriter fileWriter = new FileWriter(configFile);
@@ -38,14 +43,24 @@ public abstract class AbstractConfiguration {
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException exception) {
-            DatabaseAPI.getInstance().getServer().getLogger().warning("Fail to save the configuration file -> " + exception.getMessage());
+            DatabaseAPI.getInstance().getServer().getLogger().warning("Fail to save a configuration file -> " + exception.getMessage());
         }
     }
 
+    /**
+     * @param key declares a key to check
+     * @return retuns a boolean if a key is contained in the jsonobject
+     */
     public boolean has(String key) {
         return getJsonObject().has(key);
     }
 
+    /**
+     * @param key declares a key that gets added to a jsonobject with a value
+     * @param value declares a value that gets added to a jsonobject with a key
+     * @param fullUpdate declares a boolean that overwrites a key
+     * @param <T> is a type parameter to declare everything
+     */
     public <T> void append(String key, T value, boolean fullUpdate) {
         if(fullUpdate) {
             jsonObject.add(key, gson.toJsonTree(value));
@@ -56,6 +71,12 @@ public abstract class AbstractConfiguration {
         }
     }
 
+    /**
+     * @param key declares a key that is getting the value
+     * @param clazz declares a class of the value what should returned
+     * @param <T> is a type parameter to declare everything
+     * @return returns a value from a class
+     */
     public <T> T get(String key, Class<T> clazz) {
         return gson.fromJson(jsonObject.get(key), clazz);
     }

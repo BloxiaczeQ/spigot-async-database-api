@@ -17,8 +17,12 @@ public class DatabaseService {
     private final ExecutorService executorService = Executors.newFixedThreadPool(8);
     private MySQLDatabaseHandler mySQLDatabaseHandler;
     private MongoDatabaseHandler mongoDatabaseHandler;
-    private DatabaseConfig databaseConfig = DatabaseAPI.getInstance().getTestPluginConfig();;
+    private DatabaseConfig databaseConfig = DatabaseAPI.getInstance().getTestPluginConfig();
 
+
+    /**
+     * init a database, appends on the DatabaseType Enum
+     */
     public DatabaseService() {
         if (databaseConfig.getDatabaseType() == DatabaseType.MYSQL) {
             new MySQLDatabaseHandler(databaseConfig.getMySQLDatabaseCredentials().getUser(),
