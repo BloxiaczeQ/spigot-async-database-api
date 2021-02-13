@@ -30,7 +30,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     }
 
     /**
-     * @param query declares data which is needed to insert a document async
+     * @param query declares data which is needed to insert a document
      * @param <K> is a type parameter to declare what type of object we got here
      */
     @Override
@@ -56,7 +56,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     }
 
     /**
-     * @param query declares data which is needed to get a list of documents async
+     * @param query declares data which is needed to get a list of documents
      * @param <K> is a type parameter to declare what type of object we got here
      * @return returns a list of bson document's async
      */
@@ -76,7 +76,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     }
 
     /**
-     * @param query declares data which is needed to update a document async
+     * @param query declares data which is needed to update a document
      * @param <K> is a type parameter to declare what type of object we got here
      */
     @Override
