@@ -17,6 +17,7 @@ public class DatabaseAPI extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // TEST
         instance = this;
         testPluginConfig = new DatabaseConfig(getDataFolder(),"config");
         databaseService = new DatabaseService();
