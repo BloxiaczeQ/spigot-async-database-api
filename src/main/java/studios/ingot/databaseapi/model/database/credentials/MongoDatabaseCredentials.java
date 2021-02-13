@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MongoDatabaseCredentials {
     private String user = "admin";
-    private String password = "gusosasi123";
+    private String password = "yoursecurepassword";
     private String host = "localhost";
     private int port = 27017;
     private String database = "database";

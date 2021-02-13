@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MySQLDatabaseCredentials {
-    private String user = "admin";
-    private String password = "gusosasi123";
+    private String user = "root";
+    private String password = "yoursecurepassword";
     private String database = "database";
     private String host = "localhost";
     private int port = 3306;
