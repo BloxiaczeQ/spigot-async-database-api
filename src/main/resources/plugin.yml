@@ -1,0 +1,4 @@
+name: DatabaseAPI
+version: 1.0-SNAPSHOT
+author: Yassino
+main: codes.yassino.databaseapi.DatabaseAPI
