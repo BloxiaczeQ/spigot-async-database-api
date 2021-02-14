@@ -1,6 +1,7 @@
 package studios.ingot.databaseapi.model.database.handler;
 
 
+import studios.ingot.databaseapi.DatabaseAPI;
 import studios.ingot.databaseapi.interfaces.IDatabaseHandler;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientURI;
@@ -21,8 +22,6 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
 
     private MongoClient mongoClient;
     private MongoDatabase mongoDatabase;
-    private ExecutorService executorService;
-
 
     public MongoDatabaseHandler(String user, String password, String host, int port, String database) {
         mongoClient = new MongoClient(new MongoClientURI("mongodb://" + user + ":" + password + "@" + host + ":" + port + "/?authSource=admin"));
@@ -35,7 +34,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
      */
     @Override
     public <K> void insertModel(K... query) {
-        executorService.execute(() -> {
+        DatabaseAPI.getInstance().getDatabaseService().getExecutorService().execute(() -> {
             mongoDatabase.getCollection((String) query[0]).insertOne((Document) query[1]);
         });
     }
@@ -49,7 +48,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     @Override
     public <K> Document getAsyncModel(K... query) {
         try {
-            return executorService.submit(() -> mongoDatabase.getCollection((String) query[0]).find((Bson) query[1]).first()).get();
+            return DatabaseAPI.getInstance().getDatabaseService().getExecutorService().submit(() -> mongoDatabase.getCollection((String) query[0]).find((Bson) query[1]).first()).get();
         } catch (InterruptedException | ExecutionException e) {
             return null;
         }
@@ -63,7 +62,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
     @Override
     public <K> List<Document> getAsyncModels(K... query) {
         try {
-            return executorService.submit(() -> {
+            return DatabaseAPI.getInstance().getDatabaseService().getExecutorService().submit(() -> {
                 List<Document> list = new ArrayList<>();
                 for (Document document : mongoDatabase.getCollection((String) query[0]).find()) {
                     list.add(document);
@@ -81,7 +80,7 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
      */
     @Override
     public <K> void updateModel(K... query) {
-        executorService.execute(() -> {
+        DatabaseAPI.getInstance().getDatabaseService().getExecutorService().execute(() -> {
             mongoDatabase.getCollection((String) query[0]).updateOne((Bson) query[1], new BasicDBObject("$set", query[2]));
         });
     }

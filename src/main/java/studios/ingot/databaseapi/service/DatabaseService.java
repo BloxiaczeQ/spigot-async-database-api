@@ -25,14 +25,14 @@ public class DatabaseService {
      */
     public DatabaseService() {
         if (databaseConfig.getDatabaseType() == DatabaseType.MYSQL) {
-            new MySQLDatabaseHandler(databaseConfig.getMySQLDatabaseCredentials().getUser(),
+            mySQLDatabaseHandler = new MySQLDatabaseHandler(databaseConfig.getMySQLDatabaseCredentials().getUser(),
                     databaseConfig.getMySQLDatabaseCredentials().getPassword(),
                     databaseConfig.getMySQLDatabaseCredentials().getHost(),
                     databaseConfig.getMySQLDatabaseCredentials().getPort(),
                     databaseConfig.getMySQLDatabaseCredentials().getDatabase()
             );
         } else if (databaseConfig.getDatabaseType() == DatabaseType.MONGODB) {
-            new MongoDatabaseHandler(databaseConfig.getMongoDatabaseCredentials().getUser(),
+            mongoDatabaseHandler = new MongoDatabaseHandler(databaseConfig.getMongoDatabaseCredentials().getUser(),
                     databaseConfig.getMongoDatabaseCredentials().getPassword(),
                     databaseConfig.getMongoDatabaseCredentials().getHost(),
                     databaseConfig.getMongoDatabaseCredentials().getPort(),
