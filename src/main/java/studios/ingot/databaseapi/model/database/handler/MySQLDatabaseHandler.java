@@ -7,6 +7,7 @@ import lombok.Getter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 
@@ -37,7 +38,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
             }
         });
     }
@@ -51,8 +52,10 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
     @Override
     public final <K> ResultSet getAsyncModel(K... query) {
         try {
-            return DatabaseAPI.getInstance().getDatabaseService().getExecutorService().submit(() -> connection.prepareStatement(String.valueOf(query[0])).executeQuery()).get();
-        } catch (InterruptedException | ExecutionException e) {
+            PreparedStatement preparedStatement = connection.prepareStatement(String.valueOf(query[0]));
+            return DatabaseAPI.getInstance().getDatabaseService().getExecutorService().submit((Callable<ResultSet>) preparedStatement::executeQuery).get();
+        } catch (InterruptedException | ExecutionException | SQLException e) {
+            DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
             return null;
         }
     }
@@ -76,7 +79,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                     }
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
                 }
                 return resultSets;
             }).get();
@@ -98,7 +101,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
             }
         });
     }
