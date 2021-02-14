@@ -1,20 +1,20 @@
-codes/yassino/databaseapi/model/database/credentials/MongoDatabaseCredentials.java
- codes.yassino.databaseapi.model.database.credentials.MongoDatabaseCredentials
-codes/yassino/databaseapi/model/database/credentials/MySQLDatabaseCredentials.java
- codes.yassino.databaseapi.model.database.credentials.MySQLDatabaseCredentials
-codes/yassino/databaseapi/enums/DatabaseType.java
- codes.yassino.databaseapi.enums.DatabaseType
-codes/yassino/databaseapi/model/database/handler/MongoDatabaseHandler.java
- codes.yassino.databaseapi.model.database.handler.MongoDatabaseHandler
-codes/yassino/databaseapi/interfaces/IDatabaseHandler.java
- codes.yassino.databaseapi.interfaces.IDatabaseHandler
-codes/yassino/databaseapi/abstracts/AbstractConfiguration.java
- codes.yassino.databaseapi.abstracts.AbstractConfiguration
-codes/yassino/databaseapi/model/config/DatabaseConfig.java
- codes.yassino.databaseapi.model.config.DatabaseConfig
-codes/yassino/databaseapi/service/DatabaseService.java
- codes.yassino.databaseapi.service.DatabaseService
-codes/yassino/databaseapi/DatabaseAPI.java
- codes.yassino.databaseapi.DatabaseAPI
-codes/yassino/databaseapi/model/database/handler/MySQLDatabaseHandler.java
- codes.yassino.databaseapi.model.database.handler.MySQLDatabaseHandler
+studios/ingot/databaseapi/interfaces/IDatabaseHandler.java
+ studios.ingot.databaseapi.interfaces.IDatabaseHandler
+studios/ingot/databaseapi/model/database/credentials/MongoDatabaseCredentials.java
+ studios.ingot.databaseapi.model.database.credentials.MongoDatabaseCredentials
+studios/ingot/databaseapi/model/database/credentials/MySQLDatabaseCredentials.java
+ studios.ingot.databaseapi.model.database.credentials.MySQLDatabaseCredentials
+studios/ingot/databaseapi/DatabaseAPI.java
+ studios.ingot.databaseapi.DatabaseAPI
+studios/ingot/databaseapi/service/DatabaseService.java
+ studios.ingot.databaseapi.service.DatabaseService
+studios/ingot/databaseapi/model/database/handler/MongoDatabaseHandler.java
+ studios.ingot.databaseapi.model.database.handler.MongoDatabaseHandler
+studios/ingot/databaseapi/enums/DatabaseType.java
+ studios.ingot.databaseapi.enums.DatabaseType
+studios/ingot/databaseapi/abstracts/AbstractConfiguration.java
+ studios.ingot.databaseapi.abstracts.AbstractConfiguration
+studios/ingot/databaseapi/model/database/handler/MySQLDatabaseHandler.java
+ studios.ingot.databaseapi.model.database.handler.MySQLDatabaseHandler
+studios/ingot/databaseapi/model/config/DatabaseConfig.java
+ studios.ingot.databaseapi.model.config.DatabaseConfig
