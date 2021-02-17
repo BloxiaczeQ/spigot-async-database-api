@@ -20,6 +20,7 @@ public class DatabaseAPI extends JavaPlugin {
         instance = this;
         testPluginConfig = new DatabaseConfig(getDataFolder(),"config");
         databaseService = new DatabaseService();
+
     }
 
 }

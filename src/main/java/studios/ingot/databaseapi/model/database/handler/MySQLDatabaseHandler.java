@@ -106,4 +106,17 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
         });
     }
 
+    @Override
+    public <K> void deleteModel(K... query) {
+        DatabaseAPI.getInstance().getDatabaseService().getExecutorService().execute(() -> {
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement((String) query[0]);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+            } catch (SQLException e) {
+                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+            }
+        });
+    }
+
 }

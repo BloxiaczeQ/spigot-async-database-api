@@ -85,5 +85,18 @@ public class MongoDatabaseHandler implements IDatabaseHandler<Document> {
         });
     }
 
+    /**
+     *
+     * @param query declares data which is needed to delete a document
+     * @param <K> is a type parameter to declare what type of object we got here
+     */
+
+    @Override
+    public <K> void deleteModel(K... query) {
+        DatabaseAPI.getInstance().getDatabaseService().getExecutorService().execute(() -> {
+            mongoDatabase.getCollection((String) query[0]).deleteOne((Bson) query[1]);
+        });
+    }
+
 
 }
