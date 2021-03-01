@@ -6,11 +6,13 @@ import studios.ingot.databaseapi.service.DatabaseService;
 
 import java.io.File;
 
-public class DatabaseAPI {
+public abstract class DatabaseAPI {
 
     @Getter
     private static DatabaseAPI instance;
+    @Getter
     private DatabaseService databaseService;
+    @Getter
     private DatabaseConfig databaseConfig;
 
     public void onStart() {
@@ -19,10 +21,22 @@ public class DatabaseAPI {
         if(!directory.exists())
             directory.mkdirs();
         databaseConfig = new DatabaseConfig(directory, "config");
-        databaseService = new DatabaseService();
+        databaseService = new DatabaseService(this);
     }
 
     public void onStop() {
 
     }
+
+    public static DatabaseAPI getInstance() {
+        return instance;
+    }
+
+    public static DatabaseAPI getAPI() {
+        return getInstance();
+    }
+
+    public abstract void log(String message);
+
+    public abstract void disable();
 }

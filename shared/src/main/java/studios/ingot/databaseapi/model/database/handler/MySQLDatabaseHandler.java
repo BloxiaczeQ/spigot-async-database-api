@@ -1,5 +1,6 @@
 package studios.ingot.databaseapi.model.database.handler;
 
+import studios.ingot.databaseapi.DatabaseAPI;
 import studios.ingot.databaseapi.interfaces.IDatabaseHandler;
 import lombok.Getter;
 
@@ -17,9 +18,9 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
     public MySQLDatabaseHandler(String user, String password, String host, int port, String database) {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/"+ database + "?autoReconnect=false", user , password);
-            DatabaseAPI.getInstance().getServer().getLogger().info("Connected to MySQL!");
+            DatabaseAPI.getInstance().log("[INFO] Connected to MySQL!");
         } catch (SQLException troubles) {
-            DatabaseAPI.getInstance().getServer().getLogger().warning("Could not connect to MYSQL ( "+ troubles.getMessage() +" )");
+            DatabaseAPI.getInstance().log("[WARN] Could not connect to MYSQL ( "+ troubles.getMessage() +" )");
         }
     }
 
@@ -36,7 +37,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             } catch (SQLException e) {
-                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+                DatabaseAPI.getInstance().log("Error! " + e.getMessage());
             }
         });
     }
@@ -53,7 +54,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
             PreparedStatement preparedStatement = connection.prepareStatement(String.valueOf(query[0]));
             return DatabaseAPI.getInstance().getDatabaseService().getExecutorService().submit((Callable<ResultSet>) preparedStatement::executeQuery).get();
         } catch (InterruptedException | ExecutionException | SQLException e) {
-            DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+            DatabaseAPI.getInstance().log("Error! " + e.getMessage());
             return null;
         }
     }
@@ -77,7 +78,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                     }
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+                    DatabaseAPI.getInstance().log("Error! " + e.getMessage());
                 }
                 return resultSets;
             }).get();
@@ -99,7 +100,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             } catch (SQLException e) {
-                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+                DatabaseAPI.getInstance().log("Error! " + e.getMessage());
             }
         });
     }
@@ -112,7 +113,7 @@ public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
             } catch (SQLException e) {
-                DatabaseAPI.getInstance().getLogger().warning("Error! " + e.getMessage());
+                DatabaseAPI.getInstance().log("Error! " + e.getMessage());
             }
         });
     }

@@ -44,7 +44,7 @@ public abstract class AbstractConfiguration {
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException exception) {
-            DatabaseAPI.getInstance().getServer().getLogger().warning("Fail to save a configuration file -> " + exception.getMessage());
+            DatabaseAPI.getInstance().log("[WARN] Fail to save a configuration file -> " + exception.getMessage());
         }
     }
 
