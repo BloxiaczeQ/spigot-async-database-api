@@ -5,7 +5,18 @@ This is an asynchronous database framework/API that allows quick and easy use of
 
 # Cross-Platform 
 
+If you clone yourself this repository, you can build the `plugins` for your platform yourself via:
 
+* Linux: `./gradle build`
+* Windows: `gradlew.bat build`
+  
+(execute in root/project-directory)
+
+or you can copy the `plugins` as jar-files from the location:
+
+* `bungeecord/build/libs/bungeecord-1.0-SNAPSHOT.jar`
+* `spigot/build/libs/bungeecord-1.0-SNAPSHOT.jar`
+* `velocity/build/libs/bungeecord-1.0-SNAPSHOT.jar`
 
 # Usage MongoDB
 
