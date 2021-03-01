@@ -1,3 +1,5 @@
 dependencies {
+    // Yep, velocity doesn't compile that by default..
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
     compile project(':shared')
 }
