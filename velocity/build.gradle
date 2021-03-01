@@ -1,5 +1,9 @@
 dependencies {
     // Yep, velocity doesn't compile that by default..
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+
+    compileOnly group: "com.velocitypowered", name: "velocity-api", version: "1.1.4"
+    annotationProcessor group: "com.velocitypowered", name: "velocity-api", version: "1.1.4"
+
     compile project(':shared')
 }

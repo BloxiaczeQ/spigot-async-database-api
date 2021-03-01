@@ -1,3 +1,6 @@
 dependencies {
+
+    compileOnly group: "net.md-5", name: "bungeecord-api", version: "1.16-R0.5-SNAPSHOT"
+
     compile project(':shared')
 }
