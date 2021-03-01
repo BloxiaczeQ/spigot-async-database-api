@@ -89,7 +89,7 @@ dependencies {
 # Maven Dependency 
 
 Add [JitPack](https://jitpack.io) as repository:
-```kotlin
+```xml
 <repositories>
 	<repository>
 	    <id>jitpack.io</id>
@@ -98,7 +98,7 @@ Add [JitPack](https://jitpack.io) as repository:
 </repositories>
 ```
 Add the API as dependency:
-```kotlin
+```xml
 <dependency>
     <groupId>com.github.IngotStudios</groupId>
     <artifactId>async-spigot-database-api</artifactId>
