@@ -28,10 +28,6 @@ public abstract class DatabaseAPI {
 
     }
 
-    public static DatabaseAPI getInstance() {
-        return instance;
-    }
-
     public static DatabaseAPI getAPI() {
         return getInstance();
     }
