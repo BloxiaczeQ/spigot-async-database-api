@@ -1,26 +1,37 @@
-plugins {
-    id 'java'
-}
+subprojects {
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+    apply plugin: 'java'
 
-repositories {
-    maven {
-        url = 'https://your-repo.net/'
+    group 'studios.ingot.databaseapi'
+    version '1.1'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url = 'https://your-repo.net/'
+        }
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+        maven {
+            url 'https://repo.cloudnetservice.eu/repository/releases/'
+        }
     }
-    mavenCentral()
-}
 
-dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.16'
-    annotationProcessor 'org.projectlombok:lombok:1.18.16'
-    compileOnly group: "org.spigotmc", name: "spigot", version: "1.8.8";
-    compile 'org.mongodb:mongodb-driver:3.12.7'
-}
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
-jar {
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        compileOnly group: "org.spigotmc", name: "spigot", version: "1.8.8";
+        compileOnly group: "net.md-5", name: "bungeecord-api", version: "1.16-R0.5-SNAPSHOT"
+
+        compile 'org.mongodb:mongodb-driver:3.12.7'
     }
+
+    jar {
+        from {
+            configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+
 }

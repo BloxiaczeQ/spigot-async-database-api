@@ -1,12 +1,13 @@
 package studios.ingot.databaseapi.abstracts;
 
-import studios.ingot.databaseapi.DatabaseAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import lombok.Getter;
+import studios.ingot.databaseapi.DatabaseAPI;
 
 import java.io.*;
+
 @Getter
 public abstract class AbstractConfiguration {
 

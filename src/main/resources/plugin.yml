@@ -1,6 +1,0 @@
-name: DatabaseAPI
-version: 1.0-SNAPSHOT
-authors:
-  - Yassino
-  - gusosasi
-main: studios.ingot.databaseapi.DatabaseAPI

@@ -1,6 +1,5 @@
 package studios.ingot.databaseapi.model.database.handler;
 
-import studios.ingot.databaseapi.DatabaseAPI;
 import studios.ingot.databaseapi.interfaces.IDatabaseHandler;
 import lombok.Getter;
 
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 
 @Getter
 public class MySQLDatabaseHandler implements IDatabaseHandler<ResultSet> {
