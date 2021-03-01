@@ -3,6 +3,20 @@
 This is an asynchronous database framework/API that allows quick and easy use of MySQL (MariaDB) and MongoDB. To add this framework as a dependency, follow the instructions in
 [Gradle](#gradle-dependency) or [Maven](#maven-dependency).
 
+# Cross-Platform 
+
+If you clone this repository, you can build the `plugins` for your platform yourself with command:
+
+* Linux: `./gradle build`
+* Windows: `gradlew.bat build`
+  
+(execute in root/project-directory)
+
+or you can copy the `plugins` as jar-files from the location:
+
+* `bungeecord/build/libs/bungeecord-1.0-SNAPSHOT.jar`
+* `spigot/build/libs/bungeecord-1.0-SNAPSHOT.jar`
+* `velocity/build/libs/bungeecord-1.0-SNAPSHOT.jar`
 
 # Usage MongoDB
 

@@ -1,0 +1,5 @@
+include 'shared'
+include 'bungeecord'
+include 'spigot'
+include 'velocity'
+
