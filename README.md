@@ -1,6 +1,7 @@
 # Asynchronous Spigot Database-API
 
-This is an asynchronous database framework/API that allows quick and easy use of MySQL (MariaDB) and MongoDB. To add this framework as a dependency, follow the instructions at [Download](#download).
+This is an asynchronous database framework/API that allows quick and easy use of MySQL (MariaDB) and MongoDB. To add this framework as a dependency, follow the instructions in
+[Gradle](#gradle-dependency) or [Maven](#maven-dependency).
 
 
 # Usage MongoDB
