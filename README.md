@@ -5,7 +5,7 @@ This is an asynchronous database framework/API that allows quick and easy use of
 
 # Cross-Platform 
 
-If you clone yourself this repository, you can build the `plugins` for your platform yourself via:
+If you clone this repository, you can build the `plugins` for your platform yourself with command:
 
 * Linux: `./gradle build`
 * Windows: `gradlew.bat build`
